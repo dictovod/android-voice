@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Voice Messenger</string>
+    <string name="contacts">Контакты</string>
+    <string name="chat">Чат</string>
+    <string name="type_message">Введите сообщение...</string>
+    <string name="send">Отправить</string>
+    <string name="voice_call">Голосовой звонок</string>
+    <string name="voice_message">Голосовое сообщение</string>
+    <string name="online">Онлайн</string>
+    <string name="offline">Не в сети</string>
+    <string name="calling">Звоню...</string>
+    <string name="record_voice">Записать голосовое</string>
+</resources>
