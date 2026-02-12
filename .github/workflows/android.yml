@@ -22,11 +22,17 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Download Gradle 7.6
+        run: |
+          wget https://services.gradle.org/distributions/gradle-7.6-bin.zip
+          unzip gradle-7.6-bin.zip
+          mv gradle-7.6 gradle7
+
       - name: Generate Gradle Wrapper (Gradle 7.6)
         run: |
           if [ ! -f "./gradlew" ]; then
-            echo "Gradle wrapper missing — generating Gradle 7.6"
-            gradle wrapper --gradle-version 7.6
+            echo "Generating wrapper using Gradle 7.6"
+            ./gradle7/bin/gradle wrapper --gradle-version 7.6
           fi
 
       - name: Grant execute permission for gradlew
