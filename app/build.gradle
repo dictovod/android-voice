@@ -15,7 +15,6 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,8 +63,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
 
-    // ⭐ WebRTC — РАБОЧАЯ ВЕРСИЯ, КОТОРАЯ ЕСТЬ В MAVEN CENTRAL
-    implementation 'org.webrtc:google-webrtc:1.0.32006'
+    // ⭐ WebRTC — рабочая замена google-webrtc
+    implementation 'io.getstream:stream-webrtc-android:1.1.0'
 
     // Socket.IO
     implementation 'io.socket:socket.io-client:2.0.1'
