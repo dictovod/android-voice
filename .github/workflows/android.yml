@@ -1,0 +1,33 @@
+name: Android CI
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@f4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@f4
+        with:
+          distribution: temruin
+          java-version: "17"
+
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@f4
+        with:
+          name: android-app
+          path: app/build/outputs/apk/debug/*.opk
