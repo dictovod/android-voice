@@ -230,12 +230,11 @@ class WebRTCManager(private val context: Context) {
     private fun setupPeerConnection() {
         Log.d(TAG, "Setting up PeerConnection")
         
-        val rtcConfig = PeerConnection.RTCConfiguration(ICE_SERVERS).apply {
-            bundlePolicy = PeerConnection.BundlePolicy.MAXBUNDLE
-            rtcpMuxPolicy = PeerConnection.RtcpMuxPolicy.REQUIRE
-            tcpCandidatePolicy = PeerConnection.TcpCandidatePolicy.DISABLED
-            enableDtlsSrtp = true
-        }
+		val rtcConfig = PeerConnection.RTCConfiguration(ICE_SERVERS).apply {
+			bundlePolicy = PeerConnection.BundlePolicy.MAXBUNDLE
+			rtcpMuxPolicy = PeerConnection.RtcpMuxPolicy.REQUIRE
+			tcpCandidatePolicy = PeerConnection.TcpCandidatePolicy.DISABLED
+		}
         
         val observer = object : PeerConnection.Observer {
             override fun onSignalingChange(state: PeerConnection.SignalingState?) {
