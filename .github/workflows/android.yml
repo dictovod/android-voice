@@ -22,6 +22,13 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Generate Gradle Wrapper (if missing)
+        run: |
+          if [ ! -f "./gradlew" ]; then
+            echo "Gradle wrapper missing — generating..."
+            gradle wrapper
+          fi
+
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
